@@ -1,0 +1,1 @@
+ef analyze_message(message): return {"risk_score": 0, "risk_label": "SAFE"}
