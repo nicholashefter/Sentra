@@ -17,9 +17,9 @@ function IdleState() {
           />
         </svg>
       </div>
-      <p className="results__empty-title">Awaiting Input</p>
+      <p className="results__empty-title">Ready to analyze</p>
       <p className="results__empty-text">
-        Submit suspicious content above to run an analysis.
+        Enter suspicious content above to begin your analysis.
       </p>
     </div>
   );
@@ -40,7 +40,10 @@ function LoadingState() {
 function ErrorState({ message, onRetry }) {
   return (
     <div className="results__empty results__empty--error" role="alert">
-      <div className="results__empty-icon results__empty-icon--error" aria-hidden="true">
+      <div
+        className="results__empty-icon results__empty-icon--error"
+        aria-hidden="true"
+      >
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
           <path
             d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"
@@ -60,55 +63,28 @@ function ErrorState({ message, onRetry }) {
 }
 
 function ResultState({ result }) {
-  const riskClass = RISK_STYLES[result.riskLevel] ?? RISK_STYLES.MEDIUM;
+  const risk = result.risk_level?.toUpperCase() || "LOW";
+  const riskClass = RISK_STYLES[risk] || RISK_STYLES.LOW;
 
   return (
     <div className="results__content">
-      <div className="results__grid">
-        <div className="results__stat">
-          <p className="results__stat-label">VERDICT</p>
-          <p className="results__stat-value results__stat-value--verdict">
-            {result.verdict}
-          </p>
-        </div>
-
-        <div className="results__stat">
-          <p className="results__stat-label">RISK LEVEL</p>
-          <span className={`results__risk-badge ${riskClass}`}>
-            {result.riskLevel}
-          </span>
-        </div>
-
-        <div className="results__stat">
-          <p className="results__stat-label">THREAT TYPE</p>
-          <p className="results__stat-value">{result.threatType}</p>
-        </div>
-
-        <div className="results__stat">
-          <p className="results__stat-label">CONFIDENCE</p>
-          <div className="results__confidence">
-            <div className="results__confidence-track">
-              <div
-                className="results__confidence-fill"
-                style={{ width: `${result.confidence}%` }}
-              />
-            </div>
-            <span className="results__stat-value">{result.confidence}%</span>
-          </div>
-        </div>
+      <div className="results__risk">
+        <span className={`results__risk-badge ${riskClass}`}>
+          {risk} RISK
+        </span>
       </div>
 
       <div className="results__section">
-        <p className="results__section-label">EXPLANATION</p>
-        <p className="results__section-text">{result.explanation}</p>
+        <p className="results__section-label">SUMMARY</p>
+        <p className="results__section-text">{result.summary}</p>
       </div>
 
       <div className="results__section">
         <p className="results__section-label">RED FLAGS</p>
         <ul className="results__flags">
-          {result.redFlags.map((flag) => (
-            <li key={flag} className="results__flag">
-              {flag}
+          {result.indicators?.map((indicator, index) => (
+            <li key={index} className="results__flag">
+              <strong>{indicator.type}:</strong> {indicator.explanation}
             </li>
           ))}
         </ul>
@@ -116,22 +92,39 @@ function ResultState({ result }) {
 
       <div className="results__section results__section--action">
         <p className="results__section-label">RECOMMENDED ACTION</p>
-        <p className="results__section-text">{result.recommendedAction}</p>
+        <ul className="results__flags">
+          {result.recommendations?.map((recommendation, index) => (
+            <li key={index} className="results__flag">
+              {recommendation}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
 }
 
-export default function ResultsPanel({ status, result, errorMessage, onRetry }) {
+export default function ResultsPanel({
+  status,
+  result,
+  errorMessage,
+  onRetry,
+}) {
   return (
-    <section className="results" aria-labelledby="results-heading" aria-live="polite">
+    <section
+      className="results"
+      aria-labelledby="results-heading"
+      aria-live="polite"
+    >
       <p className="results__kicker" id="results-heading">
         ANALYSIS RESULT
       </p>
 
       {status === "idle" && <IdleState />}
       {status === "loading" && <LoadingState />}
-      {status === "error" && <ErrorState message={errorMessage} onRetry={onRetry} />}
+      {status === "error" && (
+        <ErrorState message={errorMessage} onRetry={onRetry} />
+      )}
       {status === "success" && result && <ResultState result={result} />}
     </section>
   );
