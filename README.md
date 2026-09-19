@@ -1,15 +1,16 @@
 
-### `NSnyder/sentra-api`
+### API
 
 ```markdown
 # Sentra API
 
-Backend API for Sentra's AI-powered threat analysis.
+API for Sentra, an AI-powered threat analysis platform.
 
 ## Built With
 
 - Python
 - Flask
+- Flask-CORS
 - OpenAI API
 
 ## Run Locally
