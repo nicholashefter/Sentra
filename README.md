@@ -1,14 +1,15 @@
-### `backend`
-
-```markdown
 # Sentra Backend
 
 Backend development for Sentra's AI-powered threat analysis system.
 
-## Purpose
+## Built With
 
-Handles threat analysis, AI integration, and communication with the frontend.
+- Python
+- Flask
+- OpenAI API
 
-## Branch
+## Run Locally
 
-`backend`
+```bash
+pip install -r requirements.txt
+python3 app.py
