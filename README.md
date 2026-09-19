@@ -26,7 +26,6 @@ Instead of simply labeling a message as malicious, Sentra identifies specific th
 
 ## How It Works
 
-```text
 User
   ↓
 Sentra Web Interface
