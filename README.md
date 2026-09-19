@@ -1,7 +1,3 @@
-
-### API
-
-```markdown
 # Sentra API
 
 API for Sentra, an AI-powered threat analysis platform.
