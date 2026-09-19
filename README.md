@@ -26,17 +26,16 @@ Instead of simply labeling a message as malicious, Sentra identifies specific th
 
 ## How It Works
 
-```text
-User
-  ↓
-Sentra Web Interface
-  ↓
-React / Vite Frontend
-  ↓
-Flask REST API
-  ↓
-AI Threat Analysis
-  ↓
-Structured Security Assessment
-  ↓
-Sentra Results
+Sentra analyzes suspicious content through a simple four-step process:
+
+**1. Submit**  
+The user enters a suspicious email, message, or other text into the Sentra analyzer.
+
+**2. Analyze**  
+Sentra sends the submitted content to its backend API for AI-powered threat analysis.
+
+**3. Identify**  
+The AI analyzes the content for indicators of phishing, social engineering, suspicious links, credential requests, urgency, and other potential threats.
+
+**4. Respond**  
+Sentra returns a risk level, explains the detected threats, and provides recommended actions for the user.
