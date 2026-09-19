@@ -1,7 +1,7 @@
 // Sentra threat analysis service
 
 export async function analyzeThreat(content) {
-  const response = await fetch("http://127.0.0.1:5000/api/analyze", {
+  const response = await fetch("https://sentra-rc7y.onrender.com/api/analyze", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
