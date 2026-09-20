@@ -39,3 +39,13 @@ The AI analyzes the content for indicators of phishing, social engineering, susp
 
 **4. Respond**  
 Sentra returns a risk level, explains the detected threats, and provides recommended actions for the user.
+
+---
+
+## Tech Stack
+
+AI Engine: OpenAI GPT-5.6 Luna
+Backend: Python, Flask
+Frontend: React, Vite
+API: OpenAI Responses API
+Output: Structured JSON security analysis
