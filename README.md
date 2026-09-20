@@ -44,8 +44,17 @@ Sentra returns a risk level, explains the detected threats, and provides recomme
 
 ## Tech Stack
 
-AI Engine: OpenAI GPT-5.6 Luna
-Backend: Python, Flask
-Frontend: React, Vite
-API: OpenAI Responses API
-Output: Structured JSON security analysis
+**AI Engine:**
+OpenAI GPT-5.6 Luna
+
+**Backend:**
+Python, Flask
+
+**Frontend:**
+React, Vite
+
+**API:**
+OpenAI Responses API
+
+**Output:**
+Structured JSON security analysis
