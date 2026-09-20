@@ -1,12 +1,17 @@
 # SENTRA
 
-## AI-Powered Agent Threat Analysis
+## AI-Powered Threat Analysis
 
 > Detect the threat before it gets you.
 
 Sentra is an AI-powered cybersecurity assistant designed to analyze suspicious emails, messages, and other text for phishing and social-engineering threats.
 
 Instead of simply labeling a message as malicious, Sentra identifies specific threat indicators, explains why the content is suspicious, assigns a risk level, and provides recommended actions.
+---
+
+## Demo
+
+https://vimeo.com/1228427111?fl=tl&fe=ec
 
 ---
 
