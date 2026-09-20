@@ -7,6 +7,7 @@
 Sentra is an AI-powered cybersecurity assistant designed to analyze suspicious emails, messages, and other text for phishing and social-engineering threats.
 
 Instead of simply labeling a message as malicious, Sentra identifies specific threat indicators, explains why the content is suspicious, assigns a risk level, and provides recommended actions.
+
 ---
 
 ## Demo
